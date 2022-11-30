@@ -1,53 +1,53 @@
 class Message {
     static get didntUnderstand() {
-        return `Sorry, I didn't understand what you said! Try to pass an URL ` +
-            `or use \/help command`;
+        return `Вибачте, я не зрозумів, що ви написали! Спробуйте написати URL-адресу. ` +
+            `або скористайтеся командою \/help`;
     }
 
     static get verifyHowToUse() {
-        return `To use /verify command you have to pass an URL. ` +
-            `Ex: /verify telegram.org`;
+        return `Щоб використовувати команду /verify, потрібно написати URL-адресу. ` +
+            `Наприклад: /verify telegram.org`;
     }
 
     static get trackHowToUse() {
-        return `To use /track command you have to pass an URL to track. ` +
-            `Ex: /track telegram.org`;
+        return `Щоб використовувати команду /track, потрібно передати URL-адресу для відстеження. ` +
+            `Наприклад: /track telegram.org`;
     }
 
     static welcomeFirstStep(username) {
-        return `Hi ${username}, I'm the Is it UP bot, my mission is tell you` +
-            ` if any website is up or down.`;
+        return `Привіт ${username}, я бот, моя місія — розповісти вам` +
+            ` якщо будь-який веб-сайт працює чи не працює.`;
     }
 
     static get welcomeSecondStep() {
-        return `We can chat by these commands:\n` +
-            `\/verify yourdomain.com - Verify if an URL is up or down \n` +
-            `\/track yourdomain.com - Track an URL and be notified when the status get changed\n` +
-            `\/track_list - Get a list of all tracked URLs\n` +
-            `\/track_delete - Delete an URL from the track list\n` +
-            `You also can just type an URL to know if it's up or down.`;
+        return `Ми можемо спілкуватися за допомогою цих команд:\n` +
+            `\/verify yourdomain.com - Перевірити, чи URL-адреса активна чи неактивна \n` +
+            `\/track yourdomain.com - Відстежувати URL-адресу та відправити сповіщення, якщо статус буде змінено\n` +
+            `\/track_list - Отримайти список усіх відстежуваних URL-адрес\n` +
+            `\/track_delete - Видалити URL-адресу зі списку треків\n` +
+            `Ви також можете просто ввести URL-адресу, щоб дізнатися, працює сайт чи ні.`;
     }
 
     static successStatus(url) {
-        return `${url} is up \u{1F604}`;
+        return `${url} працює \u{1F604}`;
     }
 
     static errorStatus(url) {
-        return `${url} is down \u{1F633}`;
+        return `${url} не працює \u{1F633}`;
     }
 
     static clientOrServerErrorStatus(url, statusCode) {
-        return `${url} is responding, but the status code` +
-            ` is ${statusCode} \u{1F914}`;
+        return `${url} працює, але код статусу` +
+            ` це ${statusCode} \u{1F914}`;
     }
 
     static addedToTrackList(url) {
-        return `${url} added to Track List.` +
-            ` You will receive an alert every time the status get changed.`;
+        return `${url} додано до списку відстеження.` +
+            ` Ви отримуватимете сповіщення кожного разу, коли статус сайту буде змінено.`;
     }
 
     static get trackListHowToUse() {
-        return `To see a list of your tracked urls type: /track_list`;
+        return `Щоб переглянути список відстежуваних URL-адрес, введіть: /track_list`;
     }
 
     static get checkedAt() {
@@ -55,20 +55,20 @@ class Message {
         let currentTime = moment().format('MMMM Do YYYY, h:mm:ss A');
         let timezone = new Date().toString().match(/([A-Z]+[\+-][0-9]+)/)[1];
 
-        return ` Checked at ${currentTime} ${timezone}. `;
+        return ` перевірено ${currentTime} ${timezone}. `;
     }
 
     static get urlNotFound() {
-        return `You don't have any tracked urls, to track an url use` +
-            ` track command. Ex: /track domain.com`;
+        return `У вас немає жодної відстежуваної URL-адреси, щоб відстежити використання URL-адреси` +
+            ` застосуйте команду відстеження. Наприклад: /track domain.com`;
     }
 
     static get deleteSuccess() {
-        return `This URL was removed. ${Message.trackListHowToUse}`;
+        return `Цей URL видалено. ${Message.trackListHowToUse}`;
     }
 
     static get deleteError() {
-        return `Sorry, I can not remove this url. ${Message.trackListHowToUse}`;
+        return `Вибачте, я не можу видалити цю URL-адресу. ${Message.trackListHowToUse}`;
     }
 
     static getListMessage(urls) {
@@ -77,10 +77,10 @@ class Message {
                 return Message.urlNotFound;
 
             case 1:
-                return `Your tracked url is: ${urls[0]}`;
+                return `Ваш відстежуваний URL-адрес: ${urls[0]}`;
 
             default:
-                return `Your tracked urls are:\n${urls.join("\n")}`;
+                return `Ваші відстежувані URL-адреси:\n${urls.join("\n")}`;
         }
 
     }
